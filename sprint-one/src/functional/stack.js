@@ -8,18 +8,19 @@ var Stack = function() {
   // Implement the methods below
   someInstance.push = function(value) {
     storage[size] = value;
-     size++;
+    size++;
   };
 
   someInstance.pop = function() {
-    if(size > 0) {
+    if (size > 0) {
       size--;
     }
-    return storage[size];  
+    // storage[size] is the numeric key
+    return storage[size];
   };
 
   someInstance.size = function() {
-      return size;
+    return size;
   };
 
   return someInstance;

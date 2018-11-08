@@ -4,27 +4,28 @@ var Queue = function() {
   // Use an object with numeric keys to store values
   var storage = {};
   var size = 0;
-  var first;
-  var last;
+  var first = 0;
+  var last = 0; // start with last because a person in line is also the last
 
-  // Implement the methods below
 
   someInstance.enqueue = function(value) {
-    storage[size] = value;
-    size++;
+    storage[last] = value; // adds a person to the line
+    return last++; // last = 1
   };
 
   someInstance.dequeue = function() {
 
-    delete storage[size];
-
-    if (size > 0) {
-      size--;
+    if (last > first) {
+      var placeHolder = storage[first];
+      delete storage[first];
+      first++;
+      return placeHolder;
     }
-    return storage[size];
+
   };
 
   someInstance.size = function() {
+    size = last - first;
     return size;
   };
 
@@ -33,3 +34,6 @@ var Queue = function() {
 
 
 // .Keys to change to array first?
+
+
+
