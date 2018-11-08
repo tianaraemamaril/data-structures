@@ -11,11 +11,11 @@ var LinkedList = function() {
 
   list.addToTail = function(value) {
 
-    var node = new Node(value); 
+    var node = Node(value); 
 
-    node.head = value;
-    node.next = null;
-    node.last = null;
+    // node.head = value;
+    // node.next = null;
+    // node.last = null;
 
     // if list.head exists, assign value to head AND tail
     // else assign value to tail 
@@ -45,14 +45,18 @@ var LinkedList = function() {
 
     var currentHead = list.head;
 
-    if (target !== currentHead.value) {
-      currentHead = currentHead.next;
-      return false;
-    } else {
-      return true;
+    // recursively go over this if block
+
+    while (currentHead !== target) { 
+
+      if (target === currentHead.value) {
+        return true;
+      } else {
+        currentHead = currentHead.next;
+      }
+        return false;
     }
 
-    
   };
 
   return list;
