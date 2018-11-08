@@ -9,42 +9,50 @@ var LinkedList = function() {
 
   // create a linkedListNode instance for head and tail
 
-
-
-  var node = new Node(value); // should Node Class be a different color?
-
   list.addToTail = function(value) {
+
+    var node = new Node(value); 
+
+    node.head = value;
+    node.next = null;
+    node.last = null;
 
     // if list.head exists, assign value to head AND tail
     // else assign value to tail 
 
     if (list.head === null) {
-      list.head = node.value; 
-      list.tail = node.head;
+      list.head = node; 
+      list.tail = node;
     } else {
         
-        list.tail = value;
-    }
-    return list;
-    
+      list.tail.next = node;
+      list.tail = node;
+    }   
   };
 
 
-// something with Node.prototype
+  // should return the value of the former head when removeHead is called
   list.removeHead = function() {
 
-    // if (list.head) {
-    //   list.head = value;
-    //   delete list.head;
-    //   list.head = list.next;
-    // }
-    // return list;
-
+    var tempHead = list.head;
+    list.head = list.head.next;
+    return tempHead.value;
  
-
   };
-
+  
+  // returns a BOOLEAN
   list.contains = function(target) {
+
+    var currentHead = list.head;
+
+    if (target !== currentHead.value) {
+      currentHead = currentHead.next;
+      return false;
+    } else {
+      return true;
+    }
+
+    
   };
 
   return list;
