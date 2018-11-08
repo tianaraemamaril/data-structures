@@ -47,16 +47,16 @@ var LinkedList = function() {
 
     // recursively go over this if block
 
-    while (currentHead !== target) { 
+    while (currentHead !== null) {
 
       if (target === currentHead.value) {
         return true;
       } else {
         currentHead = currentHead.next;
       }
-        return false;
+      
     }
-
+      return false;
   };
 
   return list;
@@ -73,4 +73,8 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+
+        addToTail => constant
+        removeHead => constant
+        contains => linear
  */
