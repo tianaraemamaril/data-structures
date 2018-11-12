@@ -1,6 +1,5 @@
 var Queue = function() {
 
-
   var newQueue = Object.create(queueMethods);
   newQueue.storage = {};
   newQueue.first = 0;
@@ -24,8 +23,7 @@ queueMethods.dequeue = function() {
     delete this.storage[this.first];
     this.first++;
     return placeHolder;
-  }
-
+  } 
 };
 
 queueMethods.size = function() {
